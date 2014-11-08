@@ -7,5 +7,11 @@
         jumboMode="false"
         revision="20.0.0"
         sha1="7d2525cba8ed61fff102977caed964fc22061e34"/>
+    <item
+        dex="/home/brentonang/Programs/android/BirdUI/app/build/intermediates/pre-dexed/debug/classes-e286f785d27b49a4aa7adc36a714910d9fcae980.jar"
+        jar="/home/brentonang/Programs/android/BirdUI/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="7d2525cba8ed61fff102977caed964fc22061e34"/>
 
 </pre-dex-items>
