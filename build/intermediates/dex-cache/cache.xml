@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/brentonang/Programs/android/theBird/app/build/intermediates/pre-dexed/debug/classes-a82e10f4ba42cf7529f6335f06e2617c8c52ed0f.jar"
+        jar="/home/brentonang/Programs/android/theBird/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="7d2525cba8ed61fff102977caed964fc22061e34"/>
+
+</pre-dex-items>
