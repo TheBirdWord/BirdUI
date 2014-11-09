@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -71,7 +72,7 @@ public class HttpRequest {
             entity = response.getEntity();
 
             InputStream in = entity.getContent();
-            if (in == null) { return "";}
+            if (in == null) { return null;}
             if (entity.getContentLength() > Integer.MAX_VALUE) {
                 throw new IllegalArgumentException("HTTP entity too large to be buffered in memory");
             }

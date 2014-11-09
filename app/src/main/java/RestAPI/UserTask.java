@@ -3,6 +3,7 @@ package RestAPI;
 import com.example.brentonang.thebird.R;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by adam on 11/9/14.
@@ -20,7 +21,7 @@ public class UserTask extends RequestTask {
     private RESTCallback loginCB;
     private RESTCallback getUserCB;
 
-    public User(Client client) {
+    public UserTask(Client client) {
         client = client;
     }
 
@@ -39,7 +40,7 @@ public class UserTask extends RequestTask {
     // Async create a user with the given username and password
     public void create(String username, String password, RESTCallback callback) {
         HashMap<String, String> request;
-        request.put("uri", R.string.uri + R.string.rest_user);
+        request.put("uri", "http://thebird.azurewebsites.net/user");
         request.put("method", "POST");
         request.put("username", username);
         request.put("password", password);
@@ -50,8 +51,8 @@ public class UserTask extends RequestTask {
 
     public void login(String username, String password, RESTCallback callback) {
         HashMap<String, String> request;
-        request.put("uri", R.string.uri + R.string.rest_auth);
-        request.put("method", "POST")
+        request.put("uri", "http://thebird.azurewebsites.net/auth/token");
+        request.put("method", "POST");
         request.put("grant_type", "password");
         request.put("client_id", client.getId());
         request.put("client_secret", client.getSecret());
@@ -64,7 +65,7 @@ public class UserTask extends RequestTask {
 
     public void login(String refresh_token, RESTCallback callback) {
         HashMap<String, String> request;
-        request.put("uri", R.string.uri + R.string.rest_auth);
+        request.put("uri", "http://thebird.azurewebsites.net/auth/token");
         request.put("method", "POST");
         request.put("grant_type", "refresh_token");
         request.put("client_id", client.getId());
@@ -77,7 +78,7 @@ public class UserTask extends RequestTask {
 
     public void getUser(RESTCallback callback) {
         HashMap<String, String> request;
-        request.put("uri", R.string.uri + R.string.rest_user);
+        request.put("uri", "http://thebird.azurewebsites.net/user");
         request.put("method", "GET");
         request.put("Authorization", "Bearer " + accessToken);
         getUserCB = callback;
@@ -86,7 +87,7 @@ public class UserTask extends RequestTask {
     }
 
     @Override
-    protected onPostExecute(HashMap<String, String> result) {
+    protected void onPostExecute(Map<String, String> result) {
         String action = result.get("action");
         // Login
         if (action.isEmpty()) {
@@ -99,25 +100,23 @@ public class UserTask extends RequestTask {
                 loginCB = null;
             }
         }
-        switch (action) {
-            case "created":
-                userId = result.get("userId");
-                username = result.get("username");
+        if (action == "created") {
+            userId = result.get("userId");
+            username = result.get("username");
 
-                if (createdCB != null) {
-                    createdCB.call(result);
-                    createdCB = null;
-                }
-                break;
-            case "getUser":
-                userId = result.get("userId");
-                username = result.get("username");
+            if (createdCB != null) {
+                createdCB.call(result);
+                createdCB = null;
+            }
+        }
+        if (action == "getUser") {
+            userId = result.get("userId");
+            username = result.get("username");
 
-                if (getUserCB != null) {
-                    getUserCB.call(result);
-                    getUserCB = null;
-                }
-                break;
+            if (getUserCB != null) {
+                getUserCB.call(result);
+                getUserCB = null;
+            }
         }
     }
 
