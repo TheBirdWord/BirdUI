@@ -2,8 +2,15 @@
 <resources>
 
     <string name="app_name">theBird</string>
+    <string name="title_section1">The Feed</string>
+    <string name="title_section2">My Words</string>
+    <string name="title_section3">Events</string>
     <string name="content">Content</string>
-    <string name="subcontent">Subcontent</string>
+    <string name="content2">Content2</string>
+    <string name="content3">Content3</string>
+    <string name="content4">Content4</string>
+    <string name="content5">Content5</string>
     <string name="action_settings">Settings</string>
+    <string name="subcontent">Subcontent</string>
 
 </resources>
