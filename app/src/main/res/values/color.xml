@@ -20,4 +20,5 @@
     <color name="dark_blue">#1565C0</color>
     <color name="dark_yellow">#FFEB3B</color>
     <color name="dark_red">#EF5350</color>
+    <color name="photo_tint">#88101010</color>
 </resources>

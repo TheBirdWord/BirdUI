@@ -7,25 +7,28 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.ActivityManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
 public class MainActivity extends Activity implements ActionBar.TabListener {
-
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -45,6 +48,9 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RecyclerView mRecyclerView;
+        Adapter mAdapter;
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -78,6 +84,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                     actionBar.newTab()
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
+            /**
+             mRecyclerView = (RecyclerView)findViewById(R.id.recycler);
+             mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+             mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+             mAdapter = new FeedAdapter(ActivityManager.getInstance().getCountries(), R.layout.row_country, this);
+             **/
         }
     }
 
@@ -196,6 +209,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
             List<String> contentList = new ArrayList<String>(Arrays.asList(content));
             ArrayAdapter<String> contentAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_layout, R.id.list_item_content, content);
+
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             ListView listView = (ListView)rootView.findViewById(R.id.content_text);
             listView.setAdapter(contentAdapter);
