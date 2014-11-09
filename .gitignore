@@ -1,8 +1,15 @@
-# Idea
-.idea
-
 # Gradle
 .gradle
 
 # Build
 build
+
+# local.properties
+local.properties
+
+# gradle.properties
+grade.properties
+
+# thebird
+thebird
+theBird.iml
