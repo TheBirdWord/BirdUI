@@ -1,3 +1,12 @@
+# Android build files
+*.apk
+*.ap_
+*.dex
+*.class
+	
+# Idea
+.idea
+
 # Gradle
 .gradle
 
@@ -14,3 +23,38 @@ grade.properties
 # thebird
 thebird
 theBird.iml
+
+# Built application files
+/*/build/
+ 
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+ 
+# Gradle generated files
+.gradle/
+ 
+# Signing files
+.signing/
+ 
+# User-specific configurations
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+*.iml
+ 
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

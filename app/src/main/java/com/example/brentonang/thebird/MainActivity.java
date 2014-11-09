@@ -198,7 +198,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-           /* ListView implementation
            String[] content = {"Hi my name is Adam Dorwart",
                                 "Hi my name is Ian Schroeder",
                                 "Hi my name is Brenton Ang",
@@ -210,12 +209,10 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
             List<String> contentList = new ArrayList<String>(Arrays.asList(content));
             ArrayAdapter<String> contentAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_layout, R.id.list_item_content, content);
-            */
+
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            /* ListView implementation
             ListView listView = (ListView)rootView.findViewById(R.id.content_text);
             listView.setAdapter(contentAdapter);
-            */
             return rootView;
         }
     }
