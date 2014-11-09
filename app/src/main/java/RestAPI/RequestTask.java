@@ -17,7 +17,7 @@ public class RequestTask extends AsyncTask<Map<String, String>, String, Map<Stri
         params[0].remove("uri");
         params[0].remove("method");
 
-        HttpResponse response;
+        HttpResponse response = null;
         if (method == "GET") {
             response = HttpRequest.getRequest(uri, params[0]);
         } else if (method == "POST") {

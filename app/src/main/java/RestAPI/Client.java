@@ -6,10 +6,10 @@ package RestAPI;
 public class Client {
 
     public String getId() {
-
+        return new String();
     }
 
     public String getSecret() {
-
+        return new String();
     }
 }

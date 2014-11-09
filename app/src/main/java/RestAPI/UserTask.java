@@ -39,7 +39,7 @@ public class UserTask extends RequestTask {
 
     // Async create a user with the given username and password
     public void create(String username, String password, RESTCallback callback) {
-        HashMap<String, String> request;
+        HashMap<String, String> request = new HashMap<String, String>();
         request.put("uri", "http://thebird.azurewebsites.net/user");
         request.put("method", "POST");
         request.put("username", username);
@@ -50,7 +50,7 @@ public class UserTask extends RequestTask {
     }
 
     public void login(String username, String password, RESTCallback callback) {
-        HashMap<String, String> request;
+        HashMap<String, String> request = new HashMap<String, String>();
         request.put("uri", "http://thebird.azurewebsites.net/auth/token");
         request.put("method", "POST");
         request.put("grant_type", "password");
@@ -64,7 +64,7 @@ public class UserTask extends RequestTask {
     }
 
     public void login(String refresh_token, RESTCallback callback) {
-        HashMap<String, String> request;
+        HashMap<String, String> request = new HashMap<String, String>();
         request.put("uri", "http://thebird.azurewebsites.net/auth/token");
         request.put("method", "POST");
         request.put("grant_type", "refresh_token");
@@ -77,7 +77,7 @@ public class UserTask extends RequestTask {
     }
 
     public void getUser(RESTCallback callback) {
-        HashMap<String, String> request;
+        HashMap<String, String> request = new HashMap<String, String>();
         request.put("uri", "http://thebird.azurewebsites.net/user");
         request.put("method", "GET");
         request.put("Authorization", "Bearer " + accessToken);

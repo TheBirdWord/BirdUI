@@ -66,8 +66,8 @@ public class HttpRequest {
     }
 
     public static Map<String, String> getResponseBody(HttpResponse response) {
-        String resText;
-        HttpEntity entity;
+        String resText = null;
+        HttpEntity entity = null;
         try {
             entity = response.getEntity();
 
@@ -77,7 +77,7 @@ public class HttpRequest {
                 throw new IllegalArgumentException("HTTP entity too large to be buffered in memory");
             }
 
-            String charSet;
+            String charSet = null;
             if (entity.getContentType() != null) {
                 HeaderElement values[] = entity.getContentType().getElements();
                 if (values.length > 0) {
